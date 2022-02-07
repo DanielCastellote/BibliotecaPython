@@ -1,6 +1,3 @@
-from BibliotecaPython.biblioteca.usuario import Usuario
-
-
 class Libro:
     isbn=0
     titulo=""
@@ -9,10 +6,10 @@ class Libro:
     portada=""
     sinopsis=""
     ejemplares=0
-    usuario_prestamo=Usuario()
+    usuario_prestamo=""
     fecha=""
 
-    def __init__(self,isbn=0,titulo="",autor="",genero="",portada="",sinopsis="",ejemplares=0,usuario=Usuario,fecha=""):
+    def __init__(self,isbn=0,titulo="",autor="",genero="",portada="",sinopsis="",ejemplares=0,usuario="",fecha=""):
         self.isbn=isbn
         self.titulo=titulo
         self.autor=autor
@@ -22,3 +19,11 @@ class Libro:
         self.ejemplares=ejemplares
         self.usuario_prestamo=usuario
         self.fecha=fecha
+
+    @property
+    def isbn(self):
+        return self.isbn
+
+    @isbn.setter
+    def isbn(self,isbn):
+        self.isbn=isbn

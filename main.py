@@ -1,42 +1,6 @@
-
+from biblioteca.usuario import Usuario
 class Main():
-
-    def menu(opcion):
-        
-        if(opcion==1):
-            print("")
-        
-        if(opcion==2):
-            print("")
-        
-        if(opcion==3):
-            print("")
-
-        if(opcion==4):
-            print("")
-
-        if(opcion==5):
-            print("")
-
-        if(opcion==6):
-            print("")
-
-        if(opcion==7):
-            print("")
-
-        if(opcion==8):
-            print("")
-
-        if(opcion==9):
-            print("")
-
-        if(opcion==10):
-            print("")
-
-
-
-main=Main()
-print(""" Menu interactivo, elige una opcion con el numero asociado a la opcion:
+    print(""" Menu interactivo, elige una opcion con el numero asociado a la opcion:
             1º Alta de socio
             2º Baja de socio
             3º Alta de libro
@@ -47,8 +11,34 @@ print(""" Menu interactivo, elige una opcion con el numero asociado a la opcion:
             8º Consultar usuarios
             9º Consultar prestamos
             10º Salir""")
-opcion=int(input())
-main.menu(opcion)
+
+    def menu(opcion):
+        usuario1=Usuario("www","Juan")
+        usuario2=Usuario("eee","Ana")
+        lista_usuarios=[usuario1,usuario2]
+    
+        if(opcion==1):
+            print("Dar de alta 1 socio")
+            usuario_alta=Usuario(333,"Ramon","@gmial",54454,"Av","LLL")
+            lista_usuarios.append(usuario_alta)
+            print("Usuarios actualizados:")
+            for usuario in lista_usuarios:
+                print(usuario.nombre)
+        
+
+
+
+    elegir=int(input())
+    menu(elegir)
+        
+
+        
+        
+
+
+
+
+
 
 
 
