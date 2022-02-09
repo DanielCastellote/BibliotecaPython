@@ -10,7 +10,7 @@ class Usuario:
         self.dni=dni
         self.nombre=nombre
         self.correo=correo
-        self.telefono=telefono
+        self.telefono=telefono 
         self.domicilio=domicilio
         self.libro_prestados=libros
 
