@@ -1,12 +1,15 @@
+from biblioteca.libro import Libro
+
+
 class Usuario:
     dni=""
     nombre=""
     correo=""
     telefono=0
     domicilio=""
-    libro_prestados= ""
+    libro_prestados= Libro
 
-    def __init__(self,dni="",nombre="",correo="",telefono=0,domicilio="",libros=""):
+    def __init__(self,dni="",nombre="",correo="",telefono=0,domicilio="",libros=Libro):
         self.dni=dni
         self.nombre=nombre
         self.correo=correo
