@@ -18,7 +18,7 @@ class Usuario:
         self.libro_prestados=libros
 
     def imprime_usuarios(self):
-        print(self.nombre,self.dni,self.correo,self.domicilio,self.telefono,self.libro_prestados)
+        print(self.nombre,self.dni,self.correo,self.domicilio,self.telefono,self.libro_prestados,self.libro_prestados.titulo)
        
 
         

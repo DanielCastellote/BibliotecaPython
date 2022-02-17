@@ -2,6 +2,8 @@ from re import L
 from biblioteca.libro import Libro
 from biblioteca.usuario import Usuario
 import sys 
+
+##SI EL PROGRAMA DA UN ERROR AL PRINCIPIO VUELVE A EJECUTARLO Y FUNCIONARA
 class Main():
     print(""" Menu interactivo, elige una opcion con el numero asociado a la opcion:
             1º Alta de socio
@@ -46,10 +48,9 @@ class Main():
                 telefono=int(input())
                 print("Indique domicilio:")
                 domicilio=str(input())
-                print("Indique libros prestados:")
-                libros=str(input())
                 
-                usuario_alta=Usuario(dni,nombre,correo,telefono,domicilio,libros)
+                
+                usuario_alta=Usuario(dni,nombre,correo,telefono,domicilio)
                 lista_usuarios.append(usuario_alta)
                 print(" ")
                 print("Usuarios actualizados:")
@@ -82,19 +83,17 @@ class Main():
                 print("Indique autor:")
                 autor=str(input())
                 print("Indique genero:")
-                genero=int(input())
+                genero=str(input())
                 print("Indique portada:")
                 portada=str(input())
                 print("Indique sinopsis:")
                 sinopsis=str(input())
                 print("Indique ejemplares:")
-                ejemplares=str(input())
-                print("Indique usuario:")
-                usuario=str(input())
+                ejemplares=int(input())
                 print("Indique fecha:")
                 fecha=str(input())
 
-                libro_alta=Libro(isbn,titulo,autor,genero,portada,sinopsis,ejemplares,usuario,fecha)
+                libro_alta=Libro(isbn,titulo,autor,genero,portada,sinopsis,ejemplares,"",fecha)
                 lista_libros.append(libro_alta)
                 print(" ")
                 print("Libros actualizados:")
@@ -128,6 +127,7 @@ class Main():
                     print(usuario.nombre,usuario.libro_prestados)
                 prestar=int(input())
                 #Sacamos el libro de la lista de libros y se lo insertamos a un usuario sin libro prestado
+                #No insertar un libro a un usuario con un libro ya insertado
                 lista_usuarios.append(lista_usuarios[prestar].libro_prestados(lista_libros[sacar]))
                 lista_libros.remove(lista_libros[sacar])
 
@@ -142,6 +142,7 @@ class Main():
                     print(user.nombre)
                 devolver=int(input())
                 #Sacamos el libro del usuario y lo metemos a la lista de libros de la biblioteca
+                #Pedir devolver libro a un usuario con un libro asociado sino no hara
                 libro_devuelto=lista_usuarios[devolver].libro_prestados
                 lista_libros.append(libro_devuelto)
                 print(libro_devuelto.titulo)
@@ -151,7 +152,7 @@ class Main():
                 #Solo saco el titulo, autor y fecha para no sacar un chorro de datos
                 print("Consultar libros:")
                 for libros in lista_libros:
-                    print(libros.titulo,libros.autor,libros.fecha) 
+                    print(libros.titulo,"-",libros.autor,"-",libros.fecha) 
 
                 acciones+=1
             
@@ -159,7 +160,7 @@ class Main():
                 #Solo saco el dni nombre y telefono para no sacar un chorro de datos
                 print("Consultar usuario:")
                 for usuario in lista_usuarios:
-                    print(usuario.dni,usuario.nombre,usuario.telefono)
+                    print(usuario.dni,"-",usuario.nombre,"-",usuario.telefono)
                 acciones+=1
             
             if(opcion==9):
